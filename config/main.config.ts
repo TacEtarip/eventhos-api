@@ -68,11 +68,11 @@ export const getConfig = () => {
     settings.dataBase.acquireConnectionTimeout,
   );
 
-  configuration.dataBase.poolMin = parseInt(settings.dataBase.poolMin);
+  configuration.dataBase.poolMin = parseInt(settings.dataBase.poolMin || '1');
 
-  configuration.dataBase.poolMax = parseInt(settings.dataBase.poolMax);
+  configuration.dataBase.poolMax = parseInt(settings.dataBase.poolMax || '1');
 
-  configuration.cpuCount = parseInt(settings.cpuCount);
+  configuration.cpuCount = parseInt(settings.cpuCount || '1');
 
   configuration.log = (): log4js.Logger => logger;
 

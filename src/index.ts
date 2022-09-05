@@ -5,9 +5,11 @@ import os from 'os';
 
 const configuration = getConfig();
 
+const cpuCount = isNaN(configuration.cpuCount) ? 1 : configuration.cpuCount;
+
 const totalCPUs = os.cpus().length;
 
-if (totalCPUs < configuration.cpuCount) {
+if (totalCPUs < cpuCount) {
   throw new Error('You dont have enough cpu cores');
 }
 
@@ -29,9 +31,9 @@ const start = async () => {
   });
 };
 
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
   configuration.log().info(`Master ${process.pid} is running`);
-  for (let i = 0; i < configuration.cpuCount; i++) {
+  for (let i = 0; i < cpuCount; i++) {
     cluster
       .fork()
       .on('listening', () => configuration.log().info(`Cluster #${i} created`));

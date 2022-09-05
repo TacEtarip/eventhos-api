@@ -7,6 +7,10 @@
     "level": "debug"
   },
   "dataBase": {
+    "enableCatching": true,
+    "redisHost": "${REDIS_HOST}",
+    "redisPort": "${REDIS_PORT}",
+    "redisPassword": "${REDIS_PASSWORD}",
     "name": "${DATA_BASE_NAME}",
     "host": "${DATA_BASE_HOST}",
     "port": "${DATA_BASE_PORT}",

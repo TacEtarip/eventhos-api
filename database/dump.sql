@@ -25,9 +25,8 @@ CREATE TABLE IF NOT EXISTS `system` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `idProducer_UNIQUE` (`id` ASC),
   UNIQUE INDEX `indifier_UNIQUE` (`identifier` ASC),
-  UNIQUE INDEX `client_id_UNIQUE` (`client_id` ASC),
+  UNIQUE INDEX `client_id_UNIQUE` (`client_id` ASC))
 ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `event`
